@@ -4,9 +4,9 @@ from fastapi import Depends, Request
 from fastapi_users import (BaseUserManager, IntegerIDMixin, exceptions, models,
                            schemas)
 
-from auth.models import User
-from auth.utils import get_user_db
-from src.config import SECRET_AUTH
+from .models import User
+from .utils import get_user_db
+from ..config import SECRET_AUTH
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
@@ -46,3 +46,4 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
 
 async def get_user_manager(user_db=Depends(get_user_db)):
     yield UserManager(user_db)
+

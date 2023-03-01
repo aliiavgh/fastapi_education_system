@@ -48,6 +48,11 @@ class MentorCreate(schemas.BaseUserCreate):
     is_superuser: Optional[bool] = False
     is_verified: Optional[bool] = False
 
+
 class MentorCreateQs(MentorCreate):
     experience: str
     audience: str
+
+
+class UserUpdate(schemas.BaseUserUpdate):
+    pass
